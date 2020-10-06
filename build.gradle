@@ -9,6 +9,7 @@ buildscript {
         logging_interceptor_version = '4.2.0'
         moshi_version = '1.8.0'
         koin_version = '2.0.1'
+        glide_version = '4.11.0'
     }
     repositories {
         google()

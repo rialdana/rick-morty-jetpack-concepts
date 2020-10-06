@@ -2,6 +2,7 @@ package com.example.rickmorty.di
 
 import com.example.rickmorty.BuildConfig
 import com.example.rickmorty.data.network.RickMortyApiService
+import com.example.rickmorty.utils.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ val retrofitModule = module {
     fun createRetrofit(moshi: Moshi, httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl("https://rickandmortyapi.com/api/")
+            .baseUrl(BASE_URL)
             .client(httpClient)
             .build()
     }
