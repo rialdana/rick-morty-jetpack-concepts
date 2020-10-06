@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.rickmorty.databinding.FragmentCharactersBinding
+import org.koin.android.ext.android.inject
 
 class CharactersFragment : Fragment() {
 
+    private val viewModel: CharactersViewModel by inject()
     private lateinit var binding: FragmentCharactersBinding
 
     override fun onCreateView(
@@ -16,6 +19,9 @@ class CharactersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharactersBinding.inflate(inflater)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
         return binding.root
     }
