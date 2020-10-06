@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.example.rickmorty.adapters.CharactersAdapter
 import com.example.rickmorty.databinding.FragmentCharactersBinding
 import org.koin.android.ext.android.inject
 
@@ -22,6 +23,18 @@ class CharactersFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        binding.recyclerViewCharacters.adapter =
+            CharactersAdapter(CharactersAdapter.OnClickListener { character ->
+
+            })
+
+        viewModel.characters.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                val adapter = (binding.recyclerViewCharacters.adapter as CharactersAdapter)
+                adapter.submitList(it.results)
+            }
+        })
 
         return binding.root
     }
