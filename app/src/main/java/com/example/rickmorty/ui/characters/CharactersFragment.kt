@@ -33,15 +33,6 @@ class CharactersFragment : Fragment() {
                     .navigate(CharactersFragmentDirections.openCharacterDetailAction())
             })
 
-        viewModel.characters.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                val adapter = (binding.recyclerViewCharacters.adapter as CharactersAdapter)
-                adapter.submitList(it.results)
-
-                Toast.makeText(requireContext(), "Data cargada en adapter!", Toast.LENGTH_LONG).show()
-            }
-        })
-
         viewModel.charactersResultMessage.observe(viewLifecycleOwner, EventObserver {
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         })
