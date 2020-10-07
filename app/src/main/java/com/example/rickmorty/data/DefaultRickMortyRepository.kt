@@ -6,7 +6,7 @@ import com.example.rickmorty.data.network.RickMortyDataSource
 class DefaultRickMortyRepository(private val remoteDataSource: RickMortyDataSource) :
     RickMortyRepository {
 
-    override suspend fun getCharacters(): CharactersResponse {
+    override suspend fun getCharacters(): Result<CharactersResponse> {
         return remoteDataSource.getCharacters()
     }
 

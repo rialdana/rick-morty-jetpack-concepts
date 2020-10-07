@@ -1,17 +1,18 @@
 package com.example.rickmorty.ui.characters
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickmorty.data.RickMortyRepository
+import com.example.rickmorty.data.getData
+import com.example.rickmorty.data.getError
 import com.example.rickmorty.data.models.characters.CharactersResponse
+import com.example.rickmorty.data.succeeded
 import com.example.rickmorty.utils.Event
 import com.example.rickmorty.utils.LoadingStatus
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -38,10 +39,17 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
         viewModelScope.launch {
             _loadingStatus.value = LoadingStatus.LOADING
 
-            _characters.value = repository.getCharacters()
-            _loadingStatus.value = LoadingStatus.SUCCESS
-            _charactersResultMessage.value = Event("Data actualizada")
+            val charactersResult = repository.getCharacters()
 
+            if (charactersResult.succeeded) {
+                _characters.value = charactersResult.getData()
+                _loadingStatus.value = LoadingStatus.SUCCESS
+                _charactersResultMessage.value = Event("Data actualizada")
+            } else {
+                _charactersResultMessage.value =
+                    Event(charactersResult.getError().message ?: "Error desconocido")
+                _loadingStatus.value = LoadingStatus.ERROR
+            }
 
             val message: String = sleepThread()
             Log.i("CharactersViewModel", message)
