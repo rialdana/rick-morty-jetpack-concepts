@@ -44,11 +44,21 @@ fun bindEmptyStateWithStatus(view: View, loadingStatus: LoadingStatus?, listSize
     }
 }
 
+//@BindingAdapter("app:setRecyclerViewList")
+//fun bindRecyclerViewWithList(recyclerView: RecyclerView, characters: List<Result>?) {
+//    characters?.let {
+//        val adapter = (recyclerView.adapter as CharactersAdapter)
+//        adapter.submitList(characters)
+//    }
+//}
+
+@Suppress("UNCHECKED_CAST")
 @BindingAdapter("app:setRecyclerViewList")
-fun bindRecyclerViewWithList(recyclerView: RecyclerView, characters: List<Result>?) {
-    characters?.let {
-        val adapter = (recyclerView.adapter as CharactersAdapter)
-        adapter.submitList(characters)
+fun <T> bindRecyclerViewWithList(recyclerView: RecyclerView, data: T?) {
+    data?.let {
+        if (recyclerView.adapter is GenericAdapter<*>) {
+            (recyclerView.adapter as GenericAdapter<T>).setData(data)
+        }
     }
 }
 

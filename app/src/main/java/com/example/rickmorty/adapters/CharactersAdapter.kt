@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmorty.data.models.characters.Result
 import com.example.rickmorty.databinding.ItemCharacterBinding
+import com.example.rickmorty.utils.GenericAdapter
 
 class CharactersAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<Result, CharactersAdapter.CharactersViewHolder>(DiffCallback) {
+    ListAdapter<Result, CharactersAdapter.CharactersViewHolder>(DiffCallback),
+    GenericAdapter<List<Result>> {
 
     companion object DiffCallback : DiffUtil.ItemCallback<Result>() {
         override fun areItemsTheSame(
@@ -58,5 +60,9 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
         }
 
         holder.bind(character)
+    }
+
+    override fun setData(data: List<Result>) {
+        submitList(data)
     }
 }
