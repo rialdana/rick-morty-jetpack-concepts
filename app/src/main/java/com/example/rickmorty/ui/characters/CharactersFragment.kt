@@ -30,7 +30,11 @@ class CharactersFragment : Fragment() {
         binding.recyclerViewCharacters.adapter =
             CharactersAdapter(CharactersAdapter.OnClickListener { character ->
                 this.findNavController()
-                    .navigate(CharactersFragmentDirections.openCharacterDetailAction())
+                    .navigate(
+                        CharactersFragmentDirections.openCharacterDetailAction(
+                            character.id ?: -1
+                        )
+                    )
             })
 
         viewModel.charactersResultMessage.observe(viewLifecycleOwner, EventObserver {
