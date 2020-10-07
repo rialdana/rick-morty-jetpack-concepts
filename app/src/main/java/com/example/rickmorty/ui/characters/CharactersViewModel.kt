@@ -1,5 +1,7 @@
 package com.example.rickmorty.ui.characters
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,7 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickmorty.data.RickMortyRepository
 import com.example.rickmorty.data.models.characters.CharactersResponse
 import com.example.rickmorty.utils.LoadingStatus
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CharactersViewModel(private val repository: RickMortyRepository) : ViewModel() {
 
@@ -28,8 +33,27 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
             _loadingStatus.value = LoadingStatus.LOADING
 
             _characters.value = repository.getCharacters()
-
             _loadingStatus.value = LoadingStatus.SUCCESS
+
+            val message: String = sleepThread()
+            Log.i("CharactersViewModel", message)
+
+            sleepThread2()
+
+            // _characters.value = CharactersResponse(null, emptyList())
+        }
+    }
+
+    private suspend fun sleepThread() = withContext(Dispatchers.IO) {
+
+        Thread.sleep(3000)
+
+        return@withContext "Hi there, this is the returned value"
+    }
+
+    private suspend fun sleepThread2() {
+        withContext(Dispatchers.IO) {
+            Thread.sleep(3000)
         }
     }
 }

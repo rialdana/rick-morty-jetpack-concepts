@@ -52,11 +52,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminate="true"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:progressBarVisibility="@{viewModel.loadingStatus}" />
+
+        <TextView
+            android:id="@+id/text_view_empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_characters_to_show"
+            android:visibility="gone"
+            app:emptyStateListSize="@{viewModel.characters.results.size()}"
+            app:emptyStateLoadingStatus="@{viewModel.loadingStatus}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
