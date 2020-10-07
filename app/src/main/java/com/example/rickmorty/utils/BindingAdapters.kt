@@ -3,6 +3,7 @@ package com.example.rickmorty.utils
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -56,6 +57,20 @@ fun <T> bindRecyclerViewWithList(recyclerView: RecyclerView, data: T?) {
     data?.let {
         if (recyclerView.adapter is GenericAdapter<*>) {
             (recyclerView.adapter as GenericAdapter<T>).setData(data)
+        }
+    }
+}
+
+@BindingAdapter("app:errorMessageStatus", "app:errorMessageText")
+fun bindErrorMessageWithTextView(textView: TextView, status: LoadingStatus?, message: String?) {
+    status?.let {
+        message?.let {
+            if (status == LoadingStatus.ERROR) {
+                textView.visibility = View.VISIBLE
+                textView.text = message
+            } else {
+                textView.visibility = View.GONE
+            }
         }
     }
 }

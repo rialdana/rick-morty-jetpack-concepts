@@ -26,6 +26,11 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
     val loadingStatus: LiveData<LoadingStatus>
         get() = _loadingStatus
 
+    private val _charactersErrorMessage = MutableLiveData<String>()
+    val charactersErrorMessage: LiveData<String>
+        get() = _charactersErrorMessage
+
+    // para probar los eventos
     private val _charactersResultMessage = MutableLiveData<Event<String>>()
     val charactersResultMessage: LiveData<Event<String>>
         get() = _charactersResultMessage
@@ -48,6 +53,8 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
             } else {
                 _charactersResultMessage.value =
                     Event(charactersResult.getError().message ?: "Error desconocido")
+
+                _charactersErrorMessage.value = charactersResult.getError().message
                 _loadingStatus.value = LoadingStatus.ERROR
             }
 
