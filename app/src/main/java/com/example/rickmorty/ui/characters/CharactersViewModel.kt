@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickmorty.data.RickMortyRepository
 import com.example.rickmorty.data.models.characters.CharactersResponse
+import com.example.rickmorty.utils.Event
 import com.example.rickmorty.utils.LoadingStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -24,7 +25,12 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
     val loadingStatus: LiveData<LoadingStatus>
         get() = _loadingStatus
 
+    private val _charactersResultMessage = MutableLiveData<Event<String>>()
+    val charactersResultMessage: LiveData<Event<String>>
+        get() = _charactersResultMessage
+
     init {
+        Log.i("CharactersViewModel", "VM was created")
         getCharacters()
     }
 
@@ -34,6 +40,8 @@ class CharactersViewModel(private val repository: RickMortyRepository) : ViewMod
 
             _characters.value = repository.getCharacters()
             _loadingStatus.value = LoadingStatus.SUCCESS
+            _charactersResultMessage.value = Event("Data actualizada")
+
 
             val message: String = sleepThread()
             Log.i("CharactersViewModel", message)
