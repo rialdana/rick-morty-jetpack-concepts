@@ -20,11 +20,10 @@ class CharacterDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCharacterDetailBinding.inflate(inflater)
-
-        viewModel.sayHi()
-
-        args.characterId
+        binding = FragmentCharacterDetailBinding.inflate(inflater).apply {
+            lifecycleOwner = this@CharacterDetailFragment
+            viewModel = this@CharacterDetailFragment.viewModel
+        }
 
         return binding.root
     }
