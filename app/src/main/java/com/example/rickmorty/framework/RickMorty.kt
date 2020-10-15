@@ -1,9 +1,9 @@
-package com.example.rickmorty
+package com.example.rickmorty.framework
 
 import android.app.Application
-import com.example.rickmorty.di.appModule
-import com.example.rickmorty.di.retrofitModule
-import com.example.rickmorty.di.viewModelModule
+import com.example.rickmorty.framework.di.appModule
+import com.example.rickmorty.framework.di.retrofitModule
+import com.example.rickmorty.framework.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

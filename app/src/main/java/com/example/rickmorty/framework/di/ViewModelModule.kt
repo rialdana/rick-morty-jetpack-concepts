@@ -1,7 +1,7 @@
-package com.example.rickmorty.di
+package com.example.rickmorty.framework.di
 
-import com.example.rickmorty.ui.characterdetail.CharacterDetailViewModel
-import com.example.rickmorty.ui.characters.CharactersViewModel
+import com.example.rickmorty.presentation.ui.characterdetail.CharacterDetailViewModel
+import com.example.rickmorty.presentation.ui.characters.CharactersViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

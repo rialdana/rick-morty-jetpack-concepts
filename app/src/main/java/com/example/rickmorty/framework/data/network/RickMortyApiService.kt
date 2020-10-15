@@ -1,7 +1,5 @@
-package com.example.rickmorty.data.network
+package com.example.rickmorty.framework.data.network
 
-import com.example.rickmorty.domain.Character
-import com.example.rickmorty.domain.CharactersResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path

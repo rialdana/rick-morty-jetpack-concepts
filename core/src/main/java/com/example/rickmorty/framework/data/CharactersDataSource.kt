@@ -1,10 +1,9 @@
-package com.example.rickmorty.data
+package com.example.rickmorty.framework.data
 
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse
 
-interface CharactersRepository {
-
+interface CharactersDataSource {
     suspend fun getCharacters(): Result<CharactersResponse>
 
     suspend fun getCharacterDetail(characterId: Int): Result<Character>

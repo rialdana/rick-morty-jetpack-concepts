@@ -1,17 +1,16 @@
-package com.example.rickmorty.ui.characters
+package com.example.rickmorty.presentation.ui.characters
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickmorty.data.CharactersRepository
-import com.example.rickmorty.data.getData
-import com.example.rickmorty.data.getError
-import com.example.rickmorty.data.succeeded
+import com.example.rickmorty.framework.data.getData
+import com.example.rickmorty.framework.data.getError
+import com.example.rickmorty.framework.data.succeeded
 import com.example.rickmorty.interactors.GetCharacters
-import com.example.rickmorty.utils.Event
-import com.example.rickmorty.utils.LoadingStatus
+import com.example.rickmorty.framework.utils.Event
+import com.example.rickmorty.framework.utils.LoadingStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

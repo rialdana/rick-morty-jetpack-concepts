@@ -9,13 +9,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.rickmorty.ui.characters.CharactersViewModel" />
+            type="com.example.rickmorty.presentation.ui.characters.CharactersViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.characters.CharactersFragment">
+        tools:context=".presentation.ui.characters.CharactersFragment">
 
         <TextView
             android:id="@+id/textView"

@@ -1,13 +1,12 @@
-package com.example.rickmorty.adapters
+package com.example.rickmorty.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rickmorty.domain.Character
 import com.example.rickmorty.databinding.ItemCharacterBinding
-import com.example.rickmorty.utils.GenericAdapter
+import com.example.rickmorty.framework.utils.GenericAdapter
 
 class CharactersAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<com.example.rickmorty.domain.Character, CharactersAdapter.CharactersViewHolder>(DiffCallback),

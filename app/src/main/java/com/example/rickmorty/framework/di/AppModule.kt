@@ -1,10 +1,10 @@
-package com.example.rickmorty.di
+package com.example.rickmorty.framework.di
 
-import com.example.rickmorty.data.DefaultRickMortyRepository
-import com.example.rickmorty.data.CharactersRepository
-import com.example.rickmorty.data.network.RemoteRickMortyDataSource
-import com.example.rickmorty.data.network.RickMortyApiService
-import com.example.rickmorty.data.CharactersDataSource
+import com.example.rickmorty.framework.data.DefaultRickMortyRepository
+import com.example.rickmorty.framework.data.CharactersRepository
+import com.example.rickmorty.framework.data.network.RemoteRickMortyDataSource
+import com.example.rickmorty.framework.data.network.RickMortyApiService
+import com.example.rickmorty.framework.data.CharactersDataSource
 import com.example.rickmorty.interactors.GetCharacterDetail
 import com.example.rickmorty.interactors.GetCharacters
 import org.koin.dsl.module

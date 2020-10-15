@@ -1,15 +1,14 @@
-package com.example.rickmorty.ui.characterdetail
+package com.example.rickmorty.presentation.ui.characterdetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickmorty.data.CharactersRepository
-import com.example.rickmorty.data.getData
-import com.example.rickmorty.data.getError
-import com.example.rickmorty.data.succeeded
+import com.example.rickmorty.framework.data.getData
+import com.example.rickmorty.framework.data.getError
+import com.example.rickmorty.framework.data.succeeded
 import com.example.rickmorty.interactors.GetCharacterDetail
-import com.example.rickmorty.utils.LoadingStatus
+import com.example.rickmorty.framework.utils.LoadingStatus
 import kotlinx.coroutines.launch
 
 class CharacterDetailViewModel(

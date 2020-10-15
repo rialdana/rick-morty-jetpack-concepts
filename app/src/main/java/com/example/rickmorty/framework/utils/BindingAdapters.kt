@@ -1,4 +1,4 @@
-package com.example.rickmorty.utils
+package com.example.rickmorty.framework.utils
 
 import android.view.View
 import android.widget.ImageView

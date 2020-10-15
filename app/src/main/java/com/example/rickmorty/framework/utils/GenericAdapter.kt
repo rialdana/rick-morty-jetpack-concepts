@@ -1,4 +1,4 @@
-package com.example.rickmorty.utils
+package com.example.rickmorty.framework.utils
 
 /**
  * This interface allows us to have a generic function to set any type of

@@ -1,7 +1,7 @@
-package com.example.rickmorty.data.network
+package com.example.rickmorty.framework.data.network
 
-import com.example.rickmorty.data.Result
-import com.example.rickmorty.data.CharactersDataSource
+import com.example.rickmorty.framework.data.Result
+import com.example.rickmorty.framework.data.CharactersDataSource
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse
 

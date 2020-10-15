@@ -7,20 +7,20 @@
 
         <variable
             name="viewModel"
-            type="com.example.rickmorty.ui.characterdetail.CharacterDetailViewModel" />
+            type="com.example.rickmorty.presentation.ui.characterdetail.CharacterDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.characterdetail.CharacterDetailFragment">
+        tools:context=".presentation.ui.characterdetail.CharacterDetailFragment">
 
         <TextView
             android:id="@+id/text_view_character_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.character.name}"
             android:layout_margin="20dp"
+            android:text="@{viewModel.character.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

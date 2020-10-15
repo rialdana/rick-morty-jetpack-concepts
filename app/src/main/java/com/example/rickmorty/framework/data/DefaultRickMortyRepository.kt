@@ -1,4 +1,4 @@
-package com.example.rickmorty.data
+package com.example.rickmorty.framework.data
 
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse

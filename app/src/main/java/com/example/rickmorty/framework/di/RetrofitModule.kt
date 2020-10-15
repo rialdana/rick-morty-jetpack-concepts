@@ -1,8 +1,8 @@
-package com.example.rickmorty.di
+package com.example.rickmorty.framework.di
 
 import com.example.rickmorty.BuildConfig
-import com.example.rickmorty.data.network.RickMortyApiService
-import com.example.rickmorty.utils.BASE_URL
+import com.example.rickmorty.framework.data.network.RickMortyApiService
+import com.example.rickmorty.framework.utils.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
