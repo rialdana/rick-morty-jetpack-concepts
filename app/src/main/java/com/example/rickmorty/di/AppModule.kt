@@ -5,6 +5,8 @@ import com.example.rickmorty.data.CharactersRepository
 import com.example.rickmorty.data.network.RemoteRickMortyDataSource
 import com.example.rickmorty.data.network.RickMortyApiService
 import com.example.rickmorty.data.CharactersDataSource
+import com.example.rickmorty.interactors.GetCharacterDetail
+import com.example.rickmorty.interactors.GetCharacters
 import org.koin.dsl.module
 
 val appModule = module {
@@ -17,9 +19,14 @@ val appModule = module {
         return RemoteRickMortyDataSource(apiService)
     }
 
+
     // Singleton para el data source
     single { createDataSource(get()) }
 
     // Singleton para el repository
     single { createRepository(get()) }
+
+    single { GetCharacters(get()) }
+
+    single { GetCharacterDetail(get()) }
 }

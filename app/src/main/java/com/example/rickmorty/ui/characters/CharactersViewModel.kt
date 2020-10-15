@@ -9,13 +9,14 @@ import com.example.rickmorty.data.CharactersRepository
 import com.example.rickmorty.data.getData
 import com.example.rickmorty.data.getError
 import com.example.rickmorty.data.succeeded
+import com.example.rickmorty.interactors.GetCharacters
 import com.example.rickmorty.utils.Event
 import com.example.rickmorty.utils.LoadingStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CharactersViewModel(private val repository: CharactersRepository) : ViewModel() {
+class CharactersViewModel(private val getCharacters: GetCharacters) : ViewModel() {
 
     private val _characters = MutableLiveData<com.example.rickmorty.domain.CharactersResponse>()
     val characters: LiveData<com.example.rickmorty.domain.CharactersResponse>
@@ -43,7 +44,7 @@ class CharactersViewModel(private val repository: CharactersRepository) : ViewMo
         viewModelScope.launch {
             _loadingStatus.value = LoadingStatus.LOADING
 
-            val charactersResult = repository.getCharacters()
+            val charactersResult = getCharacters.invoke()
 
             if (charactersResult.succeeded) {
                 _characters.value = charactersResult.getData()

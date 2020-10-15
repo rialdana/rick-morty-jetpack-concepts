@@ -8,11 +8,12 @@ import com.example.rickmorty.data.CharactersRepository
 import com.example.rickmorty.data.getData
 import com.example.rickmorty.data.getError
 import com.example.rickmorty.data.succeeded
+import com.example.rickmorty.interactors.GetCharacterDetail
 import com.example.rickmorty.utils.LoadingStatus
 import kotlinx.coroutines.launch
 
 class CharacterDetailViewModel(
-    private val repository: CharactersRepository,
+    private val getCharacterDetail: GetCharacterDetail,
     private val characterId: Int
 ) : ViewModel() {
 
@@ -37,7 +38,8 @@ class CharacterDetailViewModel(
 
             _loadingStatus.value = LoadingStatus.LOADING
 
-            val response = repository.getCharacterDetail(characterId)
+            val response = getCharacterDetail.invoke(characterId)
+
             if (response.succeeded) {
                 _character.value = response.getData()
                 _loadingStatus.value = LoadingStatus.SUCCESS
