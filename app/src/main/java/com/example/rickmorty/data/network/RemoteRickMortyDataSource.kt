@@ -1,10 +1,12 @@
 package com.example.rickmorty.data.network
 
 import com.example.rickmorty.data.Result
-import com.example.rickmorty.data.models.characters.Character
-import com.example.rickmorty.data.models.characters.CharactersResponse
+import com.example.rickmorty.data.CharactersDataSource
+import com.example.rickmorty.domain.Character
+import com.example.rickmorty.domain.CharactersResponse
 
-class RemoteRickMortyDataSource(private val apiService: RickMortyApiService) : RickMortyDataSource {
+class RemoteRickMortyDataSource(private val apiService: RickMortyApiService) :
+    CharactersDataSource {
 
     override suspend fun getCharacters(): Result<CharactersResponse> {
         return try {

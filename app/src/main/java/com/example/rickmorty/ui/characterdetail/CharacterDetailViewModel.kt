@@ -4,21 +4,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickmorty.data.RickMortyRepository
+import com.example.rickmorty.data.CharactersRepository
 import com.example.rickmorty.data.getData
 import com.example.rickmorty.data.getError
-import com.example.rickmorty.data.models.characters.Character
 import com.example.rickmorty.data.succeeded
 import com.example.rickmorty.utils.LoadingStatus
 import kotlinx.coroutines.launch
 
 class CharacterDetailViewModel(
-    private val repository: RickMortyRepository,
+    private val repository: CharactersRepository,
     private val characterId: Int
 ) : ViewModel() {
 
-    private val _character = MutableLiveData<Character>()
-    val character: LiveData<Character>
+    private val _character = MutableLiveData<com.example.rickmorty.domain.Character>()
+    val character: LiveData<com.example.rickmorty.domain.Character>
         get() = _character
 
     private val _loadingStatus = MutableLiveData<LoadingStatus>()
