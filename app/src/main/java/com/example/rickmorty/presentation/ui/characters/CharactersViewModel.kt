@@ -39,7 +39,7 @@ class CharactersViewModel(private val getCharacters: GetCharacters) : ViewModel(
         getCharacters()
     }
 
-    private fun getCharacters() {
+    fun getCharacters() {
         viewModelScope.launch {
             _loadingStatus.value = LoadingStatus.LOADING
 

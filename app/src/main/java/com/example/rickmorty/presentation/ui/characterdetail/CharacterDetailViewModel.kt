@@ -32,7 +32,7 @@ class CharacterDetailViewModel(
         getCharacterDetail()
     }
 
-    private fun getCharacterDetail() {
+    fun getCharacterDetail() {
         viewModelScope.launch {
 
             _loadingStatus.value = LoadingStatus.LOADING

@@ -105,15 +105,16 @@ dependencies {
      * TESTING
      */
 
+    // Dependencies for local unit tests
     testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    testImplementation "org.robolectric:robolectric:${robolectric_version}"
-    testImplementation "androidx.test:core:$test_core_version"
-    testImplementation "androidx.fragment:fragment-testing:${fragment_testing_version}"
-    testImplementation "androidx.test:runner:${androidx_test_version}"
-    testImplementation "org.koin:koin-test:${koin_version}"
-    testImplementation "androidx.arch.core:core-testing:${core_testing_version}"
+    testImplementation "org.hamcrest:hamcrest-all:1.3" // For nice human readable assertions
 
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test.ext:junit-ktx:1.1.2"
+    testImplementation "androidx.test:core-ktx:1.3.0"
+    testImplementation "org.robolectric:robolectric:4.3.1"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"
+
 
 }
