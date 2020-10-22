@@ -3,7 +3,7 @@ package com.example.rickmorty.presentation.ui.characters
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickmorty.domain.CharactersResponse
 import com.example.rickmorty.framework.data.CharactersRepository
-import com.example.rickmorty.framework.data.FakeRickMortyRepositoryTest
+import com.example.rickmorty.framework.data.Result
 import com.example.rickmorty.framework.utils.LoadingStatus
 import com.example.rickmorty.interactors.GetCharacters
 import com.example.rickmorty.util.getOrAwaitValue
@@ -13,12 +13,13 @@ import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
 
 @ExperimentalCoroutinesApi
 class CharactersViewModelTest {
 
     private lateinit var charactersViewModel: CharactersViewModel
-    private lateinit var charactersRepository: CharactersRepository
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -26,7 +27,12 @@ class CharactersViewModelTest {
     @Test
     fun getCharacters_returnError() = runBlockingTest {
 
-        charactersRepository = FakeRickMortyRepositoryTest(null, null)
+        val charactersRepository = mock(CharactersRepository::class.java)
+
+        `when`(charactersRepository.getCharacters()).thenReturn(
+            Result.Error(Exception("Unable to get characters"))
+        )
+
         charactersViewModel = CharactersViewModel(GetCharacters(charactersRepository))
 
         charactersViewModel.getCharacters()
@@ -41,8 +47,11 @@ class CharactersViewModelTest {
 
         val charactersResponse = CharactersResponse(null, emptyList())
 
-        charactersRepository =
-            FakeRickMortyRepositoryTest(charactersResponse, null)
+        val charactersRepository = mock(CharactersRepository::class.java)
+
+        `when`(charactersRepository.getCharacters()).thenReturn(
+            Result.Success(CharactersResponse(null, emptyList()))
+        )
 
         charactersViewModel = CharactersViewModel(GetCharacters(charactersRepository))
 
