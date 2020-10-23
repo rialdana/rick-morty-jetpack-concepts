@@ -1,4 +1,4 @@
-//package com.example.rickmorty.di
+//package com.example.rickmorty.framework.di
 //
 //import android.os.Build
 //import androidx.test.core.app.ApplicationProvider
