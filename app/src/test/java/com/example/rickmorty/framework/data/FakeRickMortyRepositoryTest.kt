@@ -22,5 +22,4 @@ class FakeRickMortyRepositoryTest(
             Result.Success(characterDetail)
         }
     }
-
 }

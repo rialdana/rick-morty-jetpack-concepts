@@ -1,17 +1,17 @@
-//package com.example.rickmorty.util
+// package com.example.rickmorty.util
 //
 //
-//import android.os.Build
-//import androidx.lifecycle.ViewModel
-//import kotlinx.coroutines.runBlocking
-//import org.junit.Before
-//import org.junit.runner.RunWith
-//import org.robolectric.RobolectricTestRunner
-//import org.robolectric.annotation.Config
+// import android.os.Build
+// import androidx.lifecycle.ViewModel
+// import kotlinx.coroutines.runBlocking
+// import org.junit.Before
+// import org.junit.runner.RunWith
+// import org.robolectric.RobolectricTestRunner
+// import org.robolectric.annotation.Config
 //
-//@RunWith(RobolectricTestRunner::class)
-//@Config(sdk = [Build.VERSION_CODES.P])
-//abstract class ViewModelTest<TestViewModel : ViewModel> : CommonTest() {
+// @RunWith(RobolectricTestRunner::class)
+// @Config(sdk = [Build.VERSION_CODES.P])
+// abstract class ViewModelTest<TestViewModel : ViewModel> : CommonTest() {
 //
 //    private lateinit var viewModel: TestViewModel
 //
@@ -39,4 +39,4 @@
 //            blockingAction(transformViewModel(viewModel))
 //        }
 //    }
-//}
+// }

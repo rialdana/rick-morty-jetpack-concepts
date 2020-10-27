@@ -43,13 +43,13 @@ fun bindEmptyStateWithStatus(view: View, loadingStatus: LoadingStatus?, listSize
     }
 }
 
-//@BindingAdapter("app:setRecyclerViewList")
-//fun bindRecyclerViewWithList(recyclerView: RecyclerView, characters: List<Result>?) {
+// @BindingAdapter("app:setRecyclerViewList")
+// fun bindRecyclerViewWithList(recyclerView: RecyclerView, characters: List<Result>?) {
 //    characters?.let {
 //        val adapter = (recyclerView.adapter as CharactersAdapter)
 //        adapter.submitList(characters)
 //    }
-//}
+// }
 
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("app:setRecyclerViewList")
@@ -74,4 +74,3 @@ fun bindErrorMessageWithTextView(textView: TextView, status: LoadingStatus?, mes
         }
     }
 }
-
