@@ -17,7 +17,8 @@ class CharacterDetailFragment : Fragment() {
     private val viewModel: CharacterDetailViewModel by inject { parametersOf(args.characterId) }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharacterDetailBinding.inflate(inflater).apply {

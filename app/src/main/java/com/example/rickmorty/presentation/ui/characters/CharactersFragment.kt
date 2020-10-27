@@ -18,7 +18,8 @@ class CharactersFragment : Fragment() {
     private lateinit var binding: FragmentCharactersBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharactersBinding.inflate(inflater)

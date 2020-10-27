@@ -19,7 +19,6 @@ val appModule = module {
         return RemoteRickMortyDataSource(apiService)
     }
 
-
     // Singleton para el data source
     single { createDataSource(get()) }
 

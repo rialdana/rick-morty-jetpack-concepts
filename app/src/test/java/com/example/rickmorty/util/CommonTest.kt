@@ -1,16 +1,16 @@
-//package com.example.rickmorty.util
+// package com.example.rickmorty.util
 //
-//import androidx.test.core.app.ApplicationProvider
-//import com.example.rickmorty.framework.TestRickMortyApplication
-//import org.koin.dsl.ModuleDeclaration
-//import org.koin.dsl.module
-//import org.koin.test.AutoCloseKoinTest
-//import org.mockito.Mockito
-//import org.mockito.invocation.InvocationOnMock
-//import org.mockito.stubbing.OngoingStubbing
-//import org.mockito.stubbing.Stubber
+// import androidx.test.core.app.ApplicationProvider
+// import com.example.rickmorty.framework.TestRickMortyApplication
+// import org.koin.dsl.ModuleDeclaration
+// import org.koin.dsl.module
+// import org.koin.test.AutoCloseKoinTest
+// import org.mockito.Mockito
+// import org.mockito.invocation.InvocationOnMock
+// import org.mockito.stubbing.OngoingStubbing
+// import org.mockito.stubbing.Stubber
 //
-//abstract class CommonTest : AutoCloseKoinTest() {
+// abstract class CommonTest : AutoCloseKoinTest() {
 //
 //    lateinit var context: TestRickMortyApplication
 //
@@ -49,4 +49,4 @@
 //    }
 //
 //    inline fun <reified Class> any(): Class = Mockito.any(Class::class.java)
-//}
+// }
