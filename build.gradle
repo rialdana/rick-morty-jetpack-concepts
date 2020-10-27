@@ -31,6 +31,8 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$safe_args_version"
         classpath("org.jlleitschuh.gradle:ktlint-gradle:8.2.0")
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.14.2"
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -39,10 +41,13 @@ buildscript {
 
 allprojects {
     apply plugin: 'org.jlleitschuh.gradle.ktlint'
+    apply plugin: 'io.gitlab.arturbosch.detekt'
+
 
     repositories {
         google()
         jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 }
 
