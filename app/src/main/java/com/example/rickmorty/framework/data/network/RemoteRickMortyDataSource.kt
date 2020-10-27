@@ -5,6 +5,9 @@ import com.example.rickmorty.framework.data.CharactersDataSource
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse
 
+/**
+ * Remote data source to fetch characters from api
+ */
 class RemoteRickMortyDataSource(private val apiService: RickMortyApiService) :
     CharactersDataSource {
 

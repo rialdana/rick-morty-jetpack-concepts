@@ -4,6 +4,9 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
 
+/**
+ * Retrofit ApiService that contains all methods to fetch data from the network
+ */
 interface RickMortyApiService {
     @Headers("Content-Type: application/json", "Accept: application/json")
     @GET("character")

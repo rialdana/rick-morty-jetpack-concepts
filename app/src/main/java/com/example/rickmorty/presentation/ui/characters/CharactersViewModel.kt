@@ -15,6 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel that receives GetCharacters use case
+ */
 class CharactersViewModel(private val getCharacters: GetCharacters) : ViewModel() {
 
     private val _characters = MutableLiveData<com.example.rickmorty.domain.CharactersResponse>()

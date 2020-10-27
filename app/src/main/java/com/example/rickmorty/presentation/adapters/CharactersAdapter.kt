@@ -8,10 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmorty.databinding.ItemCharacterBinding
 import com.example.rickmorty.framework.utils.GenericAdapter
 
+/**
+ * Adapter created to display characters
+ */
 class CharactersAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<com.example.rickmorty.domain.Character, CharactersAdapter.CharactersViewHolder>(DiffCallback),
     GenericAdapter<List<com.example.rickmorty.domain.Character>> {
 
+    /**
+     * DiffCallback algorithm to check when the item of the view changed
+     */
     companion object DiffCallback : DiffUtil.ItemCallback<com.example.rickmorty.domain.Character>() {
         override fun areItemsTheSame(
             oldItem: com.example.rickmorty.domain.Character,
@@ -28,6 +34,9 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
         }
     }
 
+    /**
+     * ViewHolder to bind each character to its respective data binding class
+     */
     class CharactersViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -37,6 +46,9 @@ class CharactersAdapter(private val onClickListener: OnClickListener) :
         }
     }
 
+    /**
+     * ClickListener that returns a character every time the function is called
+     */
     class OnClickListener(private val clickListener: (character: com.example.rickmorty.domain.Character) -> Unit) {
         fun onCharacterClicked(character: com.example.rickmorty.domain.Character) = clickListener(character)
     }

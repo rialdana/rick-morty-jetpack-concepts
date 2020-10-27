@@ -3,6 +3,9 @@ package com.example.rickmorty.framework.data
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse
 
+/**
+ * CharactersRepository implementation
+ */
 class DefaultRickMortyRepository(private val remoteDataSource: CharactersDataSource) :
     CharactersRepository {
 

@@ -2,6 +2,9 @@ package com.example.rickmorty.framework.utils
 
 import androidx.lifecycle.Observer
 
+/**
+ * Event class, created to observe values only the first time they change
+ */
 open class Event<out T>(private val content: T) {
 
     var hasBeenHandled = false

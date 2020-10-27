@@ -9,6 +9,9 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
+/**
+ * Open class to inject dependencies
+ */
 open class RickMorty : Application() {
 
     override fun onCreate() {

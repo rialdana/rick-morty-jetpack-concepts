@@ -10,6 +10,9 @@ import com.example.rickmorty.databinding.FragmentCharacterDetailBinding
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
+/**
+ * CharacterDetail
+ */
 class CharacterDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentCharacterDetailBinding

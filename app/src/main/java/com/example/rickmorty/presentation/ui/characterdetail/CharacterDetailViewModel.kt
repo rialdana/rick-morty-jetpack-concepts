@@ -11,6 +11,9 @@ import com.example.rickmorty.interactors.GetCharacterDetail
 import com.example.rickmorty.framework.utils.LoadingStatus
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel that receives GetCharacterDetail use case
+ */
 class CharacterDetailViewModel(
     private val getCharacterDetail: GetCharacterDetail,
     private val characterId: Int

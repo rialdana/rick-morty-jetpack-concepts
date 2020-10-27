@@ -12,6 +12,9 @@ import com.example.rickmorty.databinding.FragmentCharactersBinding
 import com.example.rickmorty.framework.utils.EventObserver
 import org.koin.android.ext.android.inject
 
+/**
+ * CharactersFragment
+ */
 class CharactersFragment : Fragment() {
 
     private val viewModel: CharactersViewModel by inject()

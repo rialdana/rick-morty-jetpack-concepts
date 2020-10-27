@@ -6,6 +6,9 @@ import androidx.databinding.DataBindingUtil
 import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityMainBinding
 
+/**
+ * MainActivity
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

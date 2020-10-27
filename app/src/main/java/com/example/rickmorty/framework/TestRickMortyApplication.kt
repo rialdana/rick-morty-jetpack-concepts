@@ -3,6 +3,9 @@ package com.example.rickmorty.framework
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 
+/**
+ * Test application class
+ */
 class TestRickMortyApplication : RickMorty() {
     override fun modules(): List<Module> {
         return emptyList()
