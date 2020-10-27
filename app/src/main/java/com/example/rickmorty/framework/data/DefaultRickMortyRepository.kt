@@ -13,5 +13,6 @@ class DefaultRickMortyRepository(private val remoteDataSource: CharactersDataSou
         return remoteDataSource.getCharacters()
     }
 
-    override suspend fun getCharacterDetail(characterId: Int): Result<Character> = remoteDataSource.getCharacterDetail(characterId)
+    override suspend fun getCharacterDetail(characterId: Int): Result<Character> =
+        remoteDataSource.getCharacterDetail(characterId)
 }

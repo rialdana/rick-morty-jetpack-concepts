@@ -33,3 +33,4 @@ inline fun <reified T> Result<T>.getData(): T {
 inline fun <reified T> Result<T>.getError(): Exception {
     return (this as Result.Error).exception
 }
+

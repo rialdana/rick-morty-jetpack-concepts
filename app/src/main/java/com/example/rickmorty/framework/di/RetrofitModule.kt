@@ -3,6 +3,8 @@ package com.example.rickmorty.framework.di
 import com.example.rickmorty.BuildConfig
 import com.example.rickmorty.framework.data.network.RickMortyApiService
 import com.example.rickmorty.framework.utils.BASE_URL
+import com.example.rickmorty.framework.utils.CONNECT_TIMEOUT
+import com.example.rickmorty.framework.utils.READ_TIMEOUT
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -23,8 +25,8 @@ val retrofitModule = module {
 
     fun createOkHttpClient(logging: HttpLoggingInterceptor): OkHttpClient {
         val okhttp = OkHttpClient.Builder()
-            .readTimeout(60, TimeUnit.SECONDS)
-            .connectTimeout(20, TimeUnit.SECONDS).apply {
+            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS).apply {
                 if (BuildConfig.DEBUG) {
                     addInterceptor(logging)
                 }

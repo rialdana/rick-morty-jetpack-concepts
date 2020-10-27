@@ -59,26 +59,6 @@ class CharactersViewModel(private val getCharacters: GetCharacters) : ViewModel(
                 _charactersErrorMessage.value = charactersResult.getError().message
                 _loadingStatus.value = LoadingStatus.ERROR
             }
-
-            val message: String = sleepThread()
-            Log.i("CharactersViewModel", message)
-
-            sleepThread2()
-
-            // _characters.value = CharactersResponse(null, emptyList())
-        }
-    }
-
-    private suspend fun sleepThread() = withContext(Dispatchers.IO) {
-
-        Thread.sleep(3000)
-
-        return@withContext "Hi there, this is the returned value"
-    }
-
-    private suspend fun sleepThread2() {
-        withContext(Dispatchers.IO) {
-            Thread.sleep(3000)
         }
     }
 }

@@ -28,17 +28,15 @@ fun bindProgressBarWithStatus(progressBar: ProgressBar, loadingStatus: LoadingSt
 
 @BindingAdapter("app:emptyStateLoadingStatus", "app:emptyStateListSize")
 fun bindEmptyStateWithStatus(view: View, loadingStatus: LoadingStatus?, listSize: Int?) {
-    loadingStatus?.let {
-        listSize?.let {
-            if (loadingStatus == LoadingStatus.SUCCESS) {
-                view.visibility = if (listSize < 1) {
-                    View.VISIBLE
-                } else {
-                    View.GONE
-                }
+    if (loadingStatus != null && listSize != null) {
+        if (loadingStatus == LoadingStatus.SUCCESS) {
+            view.visibility = if (listSize < 1) {
+                View.VISIBLE
             } else {
-                view.visibility = View.GONE
+                View.GONE
             }
+        } else {
+            view.visibility = View.GONE
         }
     }
 }
