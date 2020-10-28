@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickmorty.domain.Character
 import com.example.rickmorty.domain.CharactersResponse
 import com.example.rickmorty.framework.data.Result
+import com.squareup.moshi.JsonDataException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
@@ -37,7 +38,7 @@ class RemoteRickMortyDataSourceTest {
 
         val message = "Unable to fetch the characters"
 
-        `when`(mockApiService.getCharacters()).thenThrow(RuntimeException(message))
+        `when`(mockApiService.getCharacters()).thenThrow(JsonDataException(message))
 
         val result = remoteRickMortyDataSource.getCharacters()
 
@@ -61,7 +62,7 @@ class RemoteRickMortyDataSourceTest {
     fun getCharacterDetail_throwError() = runBlockingTest {
         val message = "Unable to load character detail"
         `when`(mockApiService.getCharacterDetail(ArgumentMatchers.anyInt())).thenThrow(
-            RuntimeException(message)
+            JsonDataException(message)
         )
 
         val result = remoteRickMortyDataSource.getCharacterDetail(ArgumentMatchers.anyInt())
