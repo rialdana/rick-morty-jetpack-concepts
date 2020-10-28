@@ -51,6 +51,12 @@ allprojects {
     }
 }
 
+subprojects {
+    afterEvaluate { project ->
+        project.apply from: '../jacoco.gradle'
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
